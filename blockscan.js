@@ -107,6 +107,7 @@ blockscan.prototype.send = function(source, destination, asset, quantity , cb) {
           if (!ddata) {cb("error"); return; }
           db.get('users').update({addr: sdata.addr}, {$set:{dbbalance:(sdata.dbbalance-iquantity)}},{}, function(err, result) {});
           db.get('users').update({addr: ddata.addr}, {$set:{dbbalance:(ddata.dbbalance+iquantity)}},{}, function(err, result) {});
+          db.get('log').insert({from: sdata.username, to: ddata.username, quantity: quantity}, function(err, result) {});
           cb("OK");
        });
   });
