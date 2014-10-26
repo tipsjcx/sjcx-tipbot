@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "sjcx-tipper",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "irc":"*",
     "bitcoin":"*",
     "twit":"*",
-    "request":"*"
+    "request":"*",
+    "chai":"*"
   }
 }
