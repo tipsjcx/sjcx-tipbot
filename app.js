@@ -38,6 +38,13 @@ net.createServer(function(sock) {
                });
            }
 
+           if (ut.type == "getBackup") {
+               db.get('users').find({},{},function(err,data){
+                     sock.write(JSON.stringify(data), function() {
+                     });
+               });
+           }
+
            // update the DB should be done 15min after you tok out money
            if (ut.type == "updateDB") {
               console.log("updating DB");
