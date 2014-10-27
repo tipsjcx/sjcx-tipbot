@@ -12,6 +12,7 @@
     "irc":"*",
     "bitcoin":"*",
     "twit":"*",
-    "request":"*"
+    "request":"*",
+    "raw.js":"*"
   }
 }

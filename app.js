@@ -13,7 +13,11 @@ var ircb = new ircbot(bs);
 
 // set up the twitterbot
 var twitterbot = require("./twitterbot.js");
-var tbot = new twitterbot(bs); 
+var tbot = new twitterbot(bs);
+
+// set up the redditbot
+var redditbot = require("./redditbot.js");
+var rbot = new redditbot(bs);
 
 // The control server
 var net = require('net');
