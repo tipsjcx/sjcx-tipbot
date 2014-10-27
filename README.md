@@ -18,3 +18,10 @@ Enter your twitter api tokens in twitterbot.js
 Change the nick name in ircbot.js
 node app.js
 ```
+
+###RedditBot Commands
++/u/botName register
++/u/botname tip "amount"
++/u/botName balance
++/u/botName withdraw "amount" "address"
+
