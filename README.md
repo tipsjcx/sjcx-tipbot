@@ -20,8 +20,8 @@ node app.js
 ```
 
 ###RedditBot Commands
-+/u/botName register
-+/u/botname tip "amount"
-+/u/botName balance
++/u/botName register <br>
++/u/botname tip "amount" <br>
++/u/botName balance <br>
 +/u/botName withdraw "amount" "address"
 
