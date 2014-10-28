@@ -13,17 +13,21 @@ var ircb = new ircbot(bs);
 
 // set up the twitterbot
 var twitterbot = require("./twitterbot.js");
-var tbot = new twitterbot(bs); 
+var tbot = new twitterbot(bs);
+
+// set up slack bot
+var slackbot = require("./slackbot");
+var sbot = new slackbot(bs);
 
 // The control server
 var net = require('net');
 var HOST = '127.0.0.1';
 var PORT = 5484;
 
-net.createServer(function(sock) {    
-    sock.on('data', function(data) {   
+net.createServer(function(sock) {
+    sock.on('data', function(data) {
         var str = data.toString()
-        var arr = str.split("\r\n"); // if it contains more than one json string split it   
+        var arr = str.split("\r\n"); // if it contains more than one json string split it
         for(var i = 0; i < arr.length; i++) { // and go trough each json string
            var ut = JSON.parse(arr[i]);
            if (ut.type == "addrPool") {
@@ -54,14 +58,11 @@ net.createServer(function(sock) {
                     }
               });
            }
-
-     
-           
-        }       
+        }
     });
-    
+
     sock.on('close', function(data) {
         console.log('CLOSED: ' + sock.remoteAddress +' '+ sock.remotePort);
     });
-    
+
 }).listen(PORT, HOST);
