@@ -23,8 +23,6 @@ function redditbot(bs){
     stream.on('comment', function(comment) {
         var isCommentForMe = comment.body.split(" ");
         if (isCommentForMe[0] != "+/u/"+config.nick) return;
-        console.log("comment for you");
-        console.log(isCommentForMe);
         if (isCommentForMe[1] == undefined) return;
         var command = isCommentForMe[1].replace(/(\r\n|\n|\r)/gm,"");
         if (command == "register") handleRegister(comment.author,comment.name,reddit,bs);
@@ -60,8 +58,6 @@ var handleTip = function(from,amount,to,replyTo,reddit,bs){
 // example amount = 100kb
 // var amountOfStorj = amount.match(/[a-zA-Z]+|[0-9]+/g);
     var toUserName = grabUserNameFromParentId(to,function(toAuthor){
-        console.log(toAuthor);
-        console.log(parseInt(amount));
         if (toAuthor == from) return; // don't tip your self
         db.get('users').findOne({reddit:toAuthor},{},function(err,tdata){
             if (err) return;
