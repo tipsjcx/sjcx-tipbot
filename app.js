@@ -19,6 +19,10 @@ var tbot = new twitterbot(bs);
 var slackbot = require("./slackbot");
 var sbot = new slackbot(bs);
 
+// set up the redditbot
+var redditbot = require("./redditbot.js");
+var rbot = new redditbot(bs);
+
 // The control server
 var net = require('net');
 var HOST = '127.0.0.1';
