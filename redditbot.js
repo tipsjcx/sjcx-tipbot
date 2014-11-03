@@ -97,7 +97,7 @@ var handleWithdraw = function(from,to,quantity,replyTo,reddit,bs){
         if (err) return;
         if (!data) return;
         console.log("Withdraw " + quantity + " from " + data.addr + " to " + to + "");
-        bs.withdraw(data.addr, quantity, to, 0.002, function(status) {
+        bs.withdraw(data.addr, quantity, to, 0.0025, function(status) {
             reddit.comment(replyTo, "/u/" + from + " " + status, function(err){
                 if (err) return console.log(err);
             });
